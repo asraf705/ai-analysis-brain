@@ -163,14 +163,6 @@ export default function ReportsPage() {
     alert('Report link copied to clipboard!')
   }
 
-  const handleSchedule = () => {
-    alert('Schedule Report feature - Coming soon!')
-  }
-
-  const handleBulkDownload = () => {
-    alert('Bulk Download feature - Coming soon!')
-  }
-
   const handleApplyFilters = (filters: any) => {
     setSelectedType(filters.type || 'all')
     setSelectedStatus(filters.status || 'all')
