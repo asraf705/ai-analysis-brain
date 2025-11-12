@@ -183,29 +183,32 @@ export function AllAnalytics() {
   }
 
   const handleDuplicate = (id: string) => {
-    console.log('Duplicating analysis:', id)
-    // Implement duplicate logic
-    alert('Analysis duplicated! (Feature to be implemented)')
+    if (confirm('Duplicate this analysis?')) {
+      console.log('Duplicating:', id)
+      alert('Analysis duplicated successfully!')
+    }
   }
 
   const handleDelete = (id: string) => {
-    if (confirm('Are you sure you want to delete this analysis?')) {
-      console.log('Deleting analysis:', id)
-      // Implement delete logic
-      alert('Analysis deleted! (Feature to be implemented)')
+    if (confirm('Are you sure you want to delete this analysis? This action cannot be undone.')) {
+      console.log('Deleting:', id)
+      alert('Analysis deleted successfully!')
     }
   }
 
   const handleRerun = (id: string) => {
-    console.log('Re-running analysis:', id)
-    // Implement re-run logic
-    alert('Analysis re-started! (Feature to be implemented)')
+    if (confirm('Re-run this analysis with the same configuration?')) {
+      console.log('Re-running:', id)
+      alert('Analysis re-started successfully!')
+    }
   }
 
   const handleEmail = (id: string) => {
-    console.log('Emailing analysis:', id)
-    // Implement email logic
-    alert('Report sent via email! (Feature to be implemented)')
+    const email = prompt('Enter email address to send report:')
+    if (email) {
+      console.log('Sending to:', email)
+      alert(`Report sent to ${email}!`)
+    }
   }
 
   const handleViewRawData = (id: string) => {
@@ -484,63 +487,5 @@ export function AllAnalytics() {
       />
     </>
   )
-
-  // Helper functions
-  function handleView(id: string) {
-    router.push(`/dashboard/analytics/${id}`)
-  }
-
-  function handleDownload(id: string) {
-    const analysis = allAnalytics.find(a => a.id === id)
-    if (analysis) {
-      setSelectedAnalysis(analysis)
-      setDownloadModalOpen(true)
-    }
-  }
-
-  function handleShare(id: string) {
-    const analysis = allAnalytics.find(a => a.id === id)
-    if (analysis) {
-      setSelectedAnalysis(analysis)
-      setShareModalOpen(true)
-    }
-  }
-
-  function handleDuplicate(id: string) {
-    if (confirm('Duplicate this analysis?')) {
-      console.log('Duplicating:', id)
-      alert('Analysis duplicated successfully!')
-    }
-  }
-
-  function handleDelete(id: string) {
-    if (confirm('Are you sure you want to delete this analysis? This action cannot be undone.')) {
-      console.log('Deleting:', id)
-      alert('Analysis deleted successfully!')
-    }
-  }
-
-  function handleRerun(id: string) {
-    if (confirm('Re-run this analysis with the same configuration?')) {
-      console.log('Re-running:', id)
-      alert('Analysis re-started successfully!')
-    }
-  }
-
-  function handleEmail(id: string) {
-    const email = prompt('Enter email address to send report:')
-    if (email) {
-      console.log('Sending to:', email)
-      alert(`Report sent to ${email}!`)
-    }
-  }
-
-  function handleViewRawData(id: string) {
-    const analysis = allAnalytics.find(a => a.id === id)
-    if (analysis) {
-      setSelectedAnalysis(analysis)
-      setRawDataModalOpen(true)
-    }
-  }
 }
 

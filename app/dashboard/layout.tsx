@@ -18,7 +18,9 @@ import {
   ChevronUp,
   HelpCircle,
   CreditCard,
-  UserCircle
+  UserCircle,
+  BarChart3,
+  ScrollText
 } from 'lucide-react'
 import { FloatingChatButton } from '@/components/dashboard/FloatingChatButton'
 
@@ -38,7 +40,8 @@ export default function DashboardLayout({
   const navigation = [
     { name: 'Overview', href: '/dashboard', icon: LayoutDashboard },
     { name: 'Analytics', href: '/dashboard/analytics', icon: Activity },
-    { name: 'Recent Activities', href: '/dashboard/activities', icon: FileText },
+    { name: 'Recent Analytics', href: '/dashboard/analytics/all', icon: BarChart3 },
+    { name: 'Analytics Logs', href: '/dashboard/logs', icon: ScrollText },
     { name: 'Reports', href: '/dashboard/reports', icon: FileText },
     { name: 'Export Data', href: '/dashboard/export', icon: Download },
     { name: 'Upload File', href: '/dashboard/upload', icon: Upload },
